@@ -20,10 +20,10 @@
       <div class="order-list-table">
       	<table>
           <tr>
-            <th v-for="head in tableHeads" :class="{active: head.active}">{{ head.label }}</th>
+            <th v-for="(head, index) in tableHeads" :class="{active: head.active}" :key="index">{{ head.label }}</th>
           </tr>
           <tr v-for="item in tableData" :key="item.period">
-            <td v-for="head in tableHeads">{{ item[head.key] }}</td>
+            <td v-for="(head, index) in tableHeads" :key="index">{{ item[head.key] }}</td>
           </tr>
         </table>
       </div>

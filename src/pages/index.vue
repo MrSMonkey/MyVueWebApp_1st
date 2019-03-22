@@ -4,20 +4,20 @@
       <div class="index-left-block">
         <h2>全部产品</h2>
         <template v-for="product in productList">
-          <h3>{{ product.title }}</h3>
-          <ul>
-            <li v-for="item in product.list">
+          <h3 :key="product.id">{{ product.title }}</h3>
+          <ul :key="product.id">
+            <li v-for="(item, index) in product.list" :key="index">
               <a :href="item.url">{{ item.name }}</a>
               <span v-if="item.hot" class="hot-tag">HOT</span>
             </li>
           </ul>
-          <div v-if="!product.last" class="hr"></div>
+          <div v-if="!product.last" class="hr" :key="product.id"></div>
         </template>
       </div>
       <div class="index-left-block lastest-news">
         <h2>最新消息</h2>
         <ul>
-          <li v-for="item in newsList">
+          <li v-for="(item, index) in newsList" :key="index">
             <a :href="item.url" class="new-item">{{ item.title }}</a>
           </li>
         </ul>
@@ -26,7 +26,7 @@
     <div class="index-right">
       <slide-show :slides="slides" :inv="slideSpeed" @onchange="slideChange"></slide-show>
       <div class="index-board-list">
-        <div class="index-board-item" v-for="(item, index) in boardList" :class="['index-board-' + item.id, {'line-last':index % 2 !== 0}]">
+        <div class="index-board-item" v-for="(item, index) in boardList" :class="['index-board-' + item.id, {'line-last':index % 2 !== 0}]" :key="item.id">
           <div class="index-board-item-inner">
             <h2>{{ item.title }}</h2>
             <p>{{ item.description }}</p>
