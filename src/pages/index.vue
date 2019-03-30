@@ -7,7 +7,7 @@
           <h3 :key="productIndex">{{ product.title }}</h3>
           <ul :key="productIndex">
             <li v-for="(item, index) in product.list" :key="index">
-              <span @click="jump(item.url)">{{ item.name }}</span>
+              <span @click="jumpPage(item.url)">{{ item.name }}</span>
               <span v-if="item.hot" class="hot-tag">HOT</span>
             </li>
           </ul>
@@ -160,7 +160,7 @@
     },
     methods: {
       slideChange (index) {},
-      jump (url) {
+      jumpPage (url) {
         this.$router.push({
           path: url
         })
