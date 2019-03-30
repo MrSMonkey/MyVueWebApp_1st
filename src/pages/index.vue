@@ -3,21 +3,21 @@
     <div class="index-left">
       <div class="index-left-block">
         <h2>全部产品</h2>
-        <template v-for="product in productList">
-          <h3>{{ product.title }}</h3>
-          <ul>
-            <li v-for="item in product.list">
-              <a :href="item.url">{{ item.name }}</a>
+        <template v-for="(product, productIndex) in productList">
+          <h3 :key="productIndex">{{ product.title }}</h3>
+          <ul :key="productIndex">
+            <li v-for="(item, index) in product.list" :key="index">
+              <span @click="jump(item.url)">{{ item.name }}</span>
               <span v-if="item.hot" class="hot-tag">HOT</span>
             </li>
           </ul>
-          <div v-if="!product.last" class="hr"></div>
+          <div v-if="!product.last" class="hr" :key="productIndex"></div>
         </template>
       </div>
       <div class="index-left-block lastest-news">
         <h2>最新消息</h2>
         <ul>
-          <li v-for="item in newsList">
+          <li v-for="(item, index) in newsList" :key="index">
             <a :href="item.url" class="new-item">{{ item.title }}</a>
           </li>
         </ul>
@@ -26,7 +26,7 @@
     <div class="index-right">
       <slide-show :slides="slides" :inv="slideSpeed" @onchange="slideChange"></slide-show>
       <div class="index-board-list">
-        <div class="index-board-item" v-for="(item, index) in boardList" :class="['index-board-' + item.id, {'line-last':index % 2 !== 0}]">
+        <div class="index-board-item" v-for="(item, index) in boardList" :class="['index-board-' + item.id, {'line-last':index % 2 !== 0}]" :key="index">
           <div class="index-board-item-inner">
             <h2>{{ item.title }}</h2>
             <p>{{ item.description }}</p>
@@ -119,16 +119,16 @@
               },
               {
                 name: '数据预测',
-                url: 'detail/forecast'
+                url: 'forecast'
               },
               {
                 name: '流量分析',
-                url: 'detail/analysis',
+                url: 'analysis',
                 hot: true
               },
               {
                 name: '广告发布',
-                url: 'detail/publish'
+                url: 'publish'
               }
             ]
           },
@@ -159,7 +159,12 @@
       }
     },
     methods: {
-      slideChange (index) {}
+      slideChange (index) {},
+      jump (url) {
+        this.$router.push({
+          path: url
+        })
+      }
     }
   }
 </script>
