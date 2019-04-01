@@ -3,6 +3,7 @@
     <div class="index-left">
       <div class="index-left-block">
         <h2>全部产品</h2>
+<<<<<<< HEAD
         <template v-for="product in productList">
           <h3 :key="product.id">{{ product.title }}</h3>
           <ul :key="product.id">
@@ -12,6 +13,17 @@
             </li>
           </ul>
           <div v-if="!product.last" class="hr" :key="product.id"></div>
+=======
+        <template v-for="(product, productIndex) in productList">
+          <h3 :key="productIndex">{{ product.title }}</h3>
+          <ul :key="productIndex">
+            <li v-for="(item, index) in product.list" :key="index">
+              <span @click="jump(item.url)">{{ item.name }}</span>
+              <span v-if="item.hot" class="hot-tag">HOT</span>
+            </li>
+          </ul>
+          <div v-if="!product.last" class="hr" :key="productIndex"></div>
+>>>>>>> 0d4d4f59b549771132d6df8c8f30e861f0494752
         </template>
       </div>
       <div class="index-left-block lastest-news">
@@ -119,16 +131,16 @@
               },
               {
                 name: '数据预测',
-                url: 'detail/forecast'
+                url: 'forecast'
               },
               {
                 name: '流量分析',
-                url: 'detail/analysis',
+                url: 'analysis',
                 hot: true
               },
               {
                 name: '广告发布',
-                url: 'detail/publish'
+                url: 'publish'
               }
             ]
           },
@@ -159,7 +171,12 @@
       }
     },
     methods: {
-      slideChange (index) {}
+      slideChange (index) {},
+      jump (url) {
+        this.$router.push({
+          path: url
+        })
+      }
     }
   }
 </script>
