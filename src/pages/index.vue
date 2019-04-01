@@ -3,17 +3,6 @@
     <div class="index-left">
       <div class="index-left-block">
         <h2>全部产品</h2>
-<<<<<<< HEAD
-        <template v-for="product in productList">
-          <h3 :key="product.id">{{ product.title }}</h3>
-          <ul :key="product.id">
-            <li v-for="(item, index) in product.list" :key="index">
-              <a :href="item.url">{{ item.name }}</a>
-              <span v-if="item.hot" class="hot-tag">HOT</span>
-            </li>
-          </ul>
-          <div v-if="!product.last" class="hr" :key="product.id"></div>
-=======
         <template v-for="(product, productIndex) in productList">
           <h3 :key="productIndex">{{ product.title }}</h3>
           <ul :key="productIndex">
@@ -23,7 +12,6 @@
             </li>
           </ul>
           <div v-if="!product.last" class="hr" :key="productIndex"></div>
->>>>>>> 0d4d4f59b549771132d6df8c8f30e861f0494752
         </template>
       </div>
       <div class="index-left-block lastest-news">
