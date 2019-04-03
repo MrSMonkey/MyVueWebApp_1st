@@ -59,10 +59,10 @@ let router = new Router({
 router.beforeEach((to, from, next) => {
   console.log(to)
   if (to.name === 'formTest') {
-    if (from.name !== 'publish') {
-      new Vue().resetKeepAlive('formTest')
+    // if (from.name !== 'publish') {
+    new Vue().resetKeepAlive('formTest')
       // console.log(123)
-    }
+    // }
   }
   next()
 })
