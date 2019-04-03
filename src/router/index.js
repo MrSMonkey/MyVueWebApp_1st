@@ -1,4 +1,3 @@
-import '@/util/commonMixins.js'
 import Vue from 'vue'
 import Router from 'vue-router'
 import IndexPage from '@/pages/index'
@@ -61,7 +60,7 @@ router.beforeEach((to, from, next) => {
   console.log(to)
   if (to.name === 'formTest') {
     if (from.name !== 'publish') {
-      // this.resetKeepAlive('formTest')
+      new Vue().resetKeepAlive('formTest')
       // console.log(123)
     }
   }

@@ -247,6 +247,7 @@
 import VSelection from '../../components/base/selection'
 import VChooser from '../../components/base/chooser'
 export default {
+  name: 'count',
   components: {
     VChooser,
     VSelection

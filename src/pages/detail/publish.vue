@@ -256,6 +256,7 @@ import VSelection from '../../components/base/selection'
 import VCounter from '../../components/base/counter'
 import VMulChooser from '../../components/base/multiplyChooser'
 export default {
+  name: 'publish',
   components: {
     VSelection,
     VCounter,

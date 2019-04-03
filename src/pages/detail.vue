@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="detail-right">
-    	<keep-alive include="formTest">
+    	<keep-alive :include="keepAliveName">
     		<router-view></router-view>
     	</keep-alive>
     </div>
@@ -21,7 +21,7 @@
   export default {
     data () {
       return {
-        keepAliveConf: keepAliveConf,
+        keepAliveName: keepAliveConf.value,
         products: [
           {
             name: '数据统计',
@@ -63,7 +63,7 @@
       }
     },
     mounted () {
-      console.log(this.keepAliveConf.value)
+      console.log(keepAliveConf.value)
     }
   }
 </script>

@@ -123,6 +123,7 @@
   import BankChooser from '../../components/bankChooser'
   import CheckOrder from '../../components/checkOrder'
   export default {
+    name: 'analysis',
     components: {
       VSelection,
       VCounter,

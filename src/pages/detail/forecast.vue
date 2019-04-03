@@ -61,6 +61,7 @@
 import VCounter from '../../components/base/counter'
 import VMulChooser from '../../components/base/multiplyChooser'
 export default {
+  name: 'forecast',
   components: {
     VCounter,
     VMulChooser
