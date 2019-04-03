@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="detail-right">
-    	<keep-alive>
+    	<keep-alive include="formTest">
     		<router-view></router-view>
     	</keep-alive>
     </div>
@@ -17,9 +17,11 @@
 </template>
 
 <script type="text/javascript">
+  import keepAliveConf from '@/config/keepAliveConf'
   export default {
     data () {
       return {
+        keepAliveConf: keepAliveConf,
         products: [
           {
             name: '数据统计',
@@ -40,6 +42,11 @@
             name: '广告发布',
             path: 'publish',
             active: false
+          },
+          {
+            name: '表单测试',
+            path: 'formTest',
+            active: false
           }
         ],
         imgMap: {
@@ -54,6 +61,9 @@
       productIcon () {
         return this.imgMap[this.$route.path]
       }
+    },
+    mounted () {
+      console.log(this.keepAliveConf.value)
     }
   }
 </script>

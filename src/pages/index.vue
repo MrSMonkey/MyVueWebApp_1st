@@ -119,16 +119,20 @@
               },
               {
                 name: '数据预测',
-                url: 'forecast'
+                url: 'detail/forecast'
               },
               {
                 name: '流量分析',
-                url: 'analysis',
+                url: 'detail/analysis',
                 hot: true
               },
               {
                 name: '广告发布',
-                url: 'publish'
+                url: 'detail/publish'
+              },
+              {
+                name: '表单测试',
+                url: 'detail/formTest'
               }
             ]
           },
