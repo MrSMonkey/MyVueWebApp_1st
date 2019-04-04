@@ -207,7 +207,6 @@
         }
         this.$http.post('/api/getPrice', reqParams)
         .then((res) => {
-          console.log(res)
           this.price = res.body.amount
         })
       },

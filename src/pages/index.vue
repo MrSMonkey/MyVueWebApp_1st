@@ -26,7 +26,7 @@
     <div class="index-right">
       <slide-show :slides="slides" :inv="slideSpeed" @onchange="slideChange"></slide-show>
       <div class="index-board-list">
-        <div class="index-board-item" v-for="(item, index) in boardList" :class="['index-board-' + item.id, {'line-last':index % 2 !== 0}]" :key="item.id">
+        <div class="index-board-item" v-for="(item, index) in boardList" :class="['index-board-' + item.id, {'line-last':index % 2 !== 0}]" :key="index">
           <div class="index-board-item-inner">
             <h2>{{ item.title }}</h2>
             <p>{{ item.description }}</p>

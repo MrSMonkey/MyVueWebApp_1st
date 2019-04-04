@@ -9,9 +9,10 @@
       </div>
     </div>
     <div class="detail-right">
-    	<keep-alive :include="keepAliveName">
-    		<router-view></router-view>
-    	</keep-alive>
+      <keep-alive>
+        <router-view v-if="this.$route.meta.keepAlive"></router-view>
+      </keep-alive>
+      <router-view v-if="!this.$route.meta.keepAlive"></router-view>
     </div>
   </div>
 </template>
@@ -63,7 +64,9 @@
       }
     },
     mounted () {
-      console.log(keepAliveConf.value)
+      // console.log(keepAliveConf.value)
+      console.log(111, this.$route.meta.keepAlive !== undefined && this.$route.meta.keepAlive)
+      console.log(222, this.$route.meta.keepAlive !== undefined && !this.$route.meta.keepAlive)
     }
   }
 </script>

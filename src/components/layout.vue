@@ -201,7 +201,13 @@
     cursor: pointer;
   }
   .button:hover {
-    background: #4fc08d;
+    background: #31e694;
+  }
+  .backButton {
+    background: #5e5d5d;
+  }
+  .backButton:hover {
+    background: #7e7e80;
   }
   .g-form {
 
