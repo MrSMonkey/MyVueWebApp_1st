@@ -9,20 +9,19 @@
       </div>
     </div>
     <div class="detail-right">
-      <keep-alive>
-        <router-view v-if="this.$route.meta.keepAlive"></router-view>
+      <keep-alive :include="keepAliveName">
+        <router-view></router-view>
       </keep-alive>
-      <router-view v-if="!this.$route.meta.keepAlive"></router-view>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
-  import keepAliveConf from '@/config/keepAliveConf'
+  // import keepAliveConf from '@/config/keepAliveConf'
   export default {
     data () {
       return {
-        keepAliveName: keepAliveConf.value,
+        keepAliveName: '',
         products: [
           {
             name: '数据统计',
@@ -64,9 +63,13 @@
       }
     },
     mounted () {
-      // console.log(keepAliveConf.value)
-      console.log(111, this.$route.meta.keepAlive !== undefined && this.$route.meta.keepAlive)
-      console.log(222, this.$route.meta.keepAlive !== undefined && !this.$route.meta.keepAlive)
+      this.keepAliveName = this.$store.getters.getKeepaliveComponents
+      console.log('detailMounted', this.keepAliveName)
+      // console.log('detail', keepAliveConf.value)
+    },
+    activated () {
+      this.keepAliveName = this.$store.getters.getKeepaliveComponents
+      // console.log('detailActivated', this.keepAliveName)
     }
   }
 </script>

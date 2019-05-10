@@ -25,3 +25,37 @@ export default {
     }
   }
 }
+
+export function debounce (method, delay) {
+  let timer = null
+  return () => {
+    let args = arguments
+    timer && clearTimeout(timer)
+    timer = setTimeout(function () {
+      method(...args)
+    }, delay)
+  }
+}
+export function throttle (method, mustRunDelay) {
+  let timer
+  // let args = arguments
+  let start
+  const loop = () => {
+    let now = Date.now()
+    if (!start) {
+      start = now
+    }
+    if (timer) {
+      clearTimeout(timer)
+    }
+    if (now - start >= mustRunDelay) {
+      method(2)
+      start = now
+    } else {
+      timer = setTimeout(() => {
+        loop(1)
+      }, 500)
+    }
+  }
+  return loop
+}

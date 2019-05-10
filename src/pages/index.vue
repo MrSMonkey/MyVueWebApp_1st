@@ -31,7 +31,7 @@
             <h2>{{ item.title }}</h2>
             <p>{{ item.description }}</p>
             <div class="index-board-button">
-              <a href="" class="button">立即购买</a>
+              <span @click="buy()" class="button">立即购买</span>
             </div>
           </div>
         </div>
@@ -42,6 +42,7 @@
 
 <script>
   import slideShow from '../components/slideShow'
+  import {throttle} from '@/util/index'
   export default {
     components: {
       slideShow: slideShow
@@ -168,7 +169,10 @@
         this.$router.push({
           path: url
         })
-      }
+      },
+      buy: throttle(function (e) {
+        console.log(111)
+      })
     }
   }
 </script>

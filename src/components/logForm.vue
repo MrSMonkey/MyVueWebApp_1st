@@ -5,7 +5,7 @@
         <span class="g-form-label">用户名：</span>
         <div class="g-form-input">
           <input type="text" 
-          v-model="usernameModel" placeholder="请输入用户名">
+          v-model.lazy="usernameModel" placeholder="请输入用户名">
         </div>
         <span class="g-form-error">{{ userErrors.errorText }}</span>
       </div>
@@ -34,6 +34,11 @@
         usernameModel: '',
         passwordModel: '',
         errorText: ''
+      }
+    },
+    watch: {
+      usernameModel (a, b) {
+        console.log(a, b)
       }
     },
     computed: {

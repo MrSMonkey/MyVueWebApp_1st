@@ -2,6 +2,14 @@
   <div class="login-form">
     <div class="g-form">
       <div class="g-form-line">
+        <span class="g-form-label">关键词：</span>
+        <div class="g-form-input">
+          <input type="text" 
+          v-model="keyWords" placeholder="请输入搜索内容">
+        </div>
+        <span class="g-form-error">{{ userErrors.errorText }}</span>
+      </div>
+      <div class="g-form-line">
         <span class="g-form-label" @click="setCity">城市：{{city.cityName}} ></span>
       </div>
       <div class="g-form-line">
@@ -35,17 +43,130 @@
       </div>
       <p>{{ errorText }}</p>
     </div>
+    <div>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+    </div>
   </div>
 </template>
 
 <script type="text/javascript">
+  import { throttle } from '@/util'
   export default {
     name: 'personForm',
     data () {
       return {
+        keyWords: '',
         usernameModel: '',
         passwordModel: '',
         errorText: '',
+        search: throttle((v) => {
+          console.log(v)
+        }, 5000),
         city: {
           cityName: '成都',
           id: 0
@@ -98,6 +219,9 @@
           }
         },
         deep: true
+      },
+      keyWords () {
+        this.search()
       }
     },
     methods: {
@@ -118,6 +242,9 @@
           path: 'city'
         })
       }
+    },
+    mounted () {
+      window.onscroll = this.search
     }
   }
 </script>

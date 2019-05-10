@@ -19,23 +19,21 @@
       </div>
     </div>
     <div class="app-content">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
+      <router-view></router-view>
     </div>
     <div class="app-foot">
       <p>&copy; 2016 fishenal MIT</p>
     </div>
-    <Dialog :is-show="isShowLogDialog" @on-close="closeDialog('isShowLogDialog')">
+    <Dialog key="isShowLogDialog" :is-show="isShowLogDialog" @on-close="closeDialog('isShowLogDialog')">
       <LogForm @has-log="onLog"></LogForm>
     </Dialog>
-    <Dialog :is-show="isShowRegDialog" @on-close="closeDialog('isShowRegDialog')">
+    <Dialog key="isShowRegDialog" :is-show="isShowRegDialog" @on-close="closeDialog('isShowRegDialog')">
       <RegForm></RegForm>
     </Dialog>
-    <Dialog :is-show="isShowAboutDialog" @on-close="closeDialog('isShowAboutDialog')">
+    <Dialog key="isShowAboutDialog" :is-show="isShowAboutDialog" @on-close="closeDialog('isShowAboutDialog')">
       <p>about</p>
     </Dialog>
-    <Dialog :is-show="isShowQuitDialog" @on-close="closeDialog('isShowQuitDialog')">
+    <Dialog key="isShowQuitDialog" :is-show="isShowQuitDialog" @on-close="closeDialog('isShowQuitDialog')">
       <p>你确定要退出登录？</p>
       <div class="button" @click="comfirmQuit(true)">确认</div>
       <div class="button" @click="comfirmQuit()">取消</div>

@@ -44,8 +44,6 @@ export default {
   },
   mounted () {
     // console.log(keepAliveConf.value)
-    console.log(111, this.$route.meta.keepAlive !== undefined && this.$route.meta.keepAlive)
-    console.log(222, this.$route.meta.keepAlive !== undefined && !this.$route.meta.keepAlive)
   }
 }
 </script>

@@ -66,19 +66,12 @@ let router = new Router({
   ]
 })
 router.beforeEach((to, from, next) => {
-  console.log('to', to)
-  console.log('from', from)
-  // if (to.meta.keepAlive !== undefined) {
-  //   to.meta.keepAlive = !to.meta.keepAlive
-  // }
-  // console.log(to.meta.keepAlive)
-  if (to.name === 'formTest') {
-    to.meta.keepAlive = true
+  if (to.name === 'formTest' && from.name !== 'city') {
+    // console.log(22222)
+    // new Vue().removeKeepAlive('formTest')
+  } else {
+    next()
   }
-  if (to.name === 'formTest' && from.name !== 'count') {
-    to.meta.keepAlive = false
-  }
-  console.log('to', to.meta.keepAlive)
   next()
 })
 export default router
